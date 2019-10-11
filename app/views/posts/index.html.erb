@@ -1,0 +1,24 @@
+
+<% @posts.each_slice(3) do |posts| %>
+
+<% posts.each do |post| %>
+<div class="card" style="width: 18rem;"></div>
+<%= image_tag post.image.variant(resize:"400x400"), class:"card-img-top" %>
+<div class="card-body">
+
+<h5 class='card-title'><%= post.name %> </h5>
+  <h5><%= post.user.email %></td></h5>
+  
+  
+  <%= link_to 'Show', post , class:"btn btn-primary" %></td>
+  <%= link_to 'Edit', edit_post_path(post) , class:"btn btn-primary" %></td>
+  <%= link_to 'Destroy', post, method: :delete, class:"btn btn-primary"  %></td>
+</div>
+<% end %>
+</div>
+<% end %>
+
+
+<br>
+
+
