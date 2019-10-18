@@ -1,24 +1,23 @@
-
-<% @posts.each_slice(3) do |posts| %>
-
-<% posts.each do |post| %>
-<div class="card" style="width: 18rem;"></div>
-<%= image_tag post.image.variant(resize:"400x400"), class:"card-img-top" %>
-<div class="card-body">
-
-<h5 class='card-title'><%= post.name %> </h5>
-  <h5><%= post.user.email %></td></h5>
+<div class="body_index container">
+  <% @posts.each_slice(3) do |posts| %>
   
-  
-  <%= link_to 'Show', post , class:"btn btn-primary" %></td>
-  <%= link_to 'Edit', edit_post_path(post) , class:"btn btn-primary" %></td>
-  <%= link_to 'Destroy', post, method: :delete, class:"btn btn-primary"  %></td>
+  <div class="row">
+    <br>
+    <% posts.each do |post| %>
+    <div class="card mr-4 " style="width: 18rem;" >
+      <%= image_tag post.image.variant(resize:"400x400")%>
+      <div class="card-body">
+        <h5 class="card-title"><%= post.name %></h5>
+        <p class="card-text"><%= post.detail %></p>
+      </div>
+      <div class="card-footer text-muted">
+        <small>Updated <%=time_ago_in_words post.updated_at%></small>
+      </div>
+    </div>
+    <br>
+  <% end %>
+  </div>
+  <br>
+  <% end %>
+  <br>
 </div>
-<% end %>
-</div>
-<% end %>
-
-
-<br>
-
-
