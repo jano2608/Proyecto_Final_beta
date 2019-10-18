@@ -5,7 +5,9 @@
     <br>
     <% posts.each do |post| %>
     <div class="card mr-4 " style="width: 18rem;" >
+        <%if post.image.attached? %>
       <%= image_tag post.image.variant(resize:"400x400")%>
+      <%end%>
       <div class="card-body">
         <h5 class="card-title"><%= post.name %></h5>
         <p class="card-text"><%= post.detail %></p>
