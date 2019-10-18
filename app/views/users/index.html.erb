@@ -2,31 +2,31 @@
 
 <h1>Post</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Name</th>
-      <th>Author</th>
-      <th>Detail</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @post.each do |post| %>
-      <tr>
-        
-        <td><%= post.name %></td>
-        <td><%= post.author %></td>
-        <td><%= post.detail %></td>
-        <td><%= post.user.email %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="body_index container">
+    <% @userpost.each_slice(3) do |userpost| %>
+    
+    <div class="row">
+      <br>
+      <% userpost.each do |userpos| %>
+      <div class="card mr-4 " style="width: 18rem;" >
+          <%if userpos.image.attached? %>
+        <%= image_tag userpos.image.variant(resize:"400x400")%>
+        <%end%>
+        <div class="card-body">
+          <h5 class="card-title"><%= userpos.name %></h5>
+          <p class="card-text"><%= userpos.detail %></p>
+          <%= link_to 'Show', userpos, class:'btn border-info' %>
+          <%= link_to 'Edit', edit_post_path(userpos) , class:'btn border-info'%>
+        <%= link_to 'Destroy', userpos, method: :delete, data: { confirm: 'Are you sure?' } , class:'btn border-info'%>
+        </div>
+        <div class="card-footer text-muted">
+          <small>Updated <%=time_ago_in_words userpos.updated_at%></small>
+        </div>
+      </div>
+      <br>
     <% end %>
-  </tbody>
-</table>
-
-<br>
+    </div>
+    <br>
+    <% end %>
+    <br>
+  </div>
