@@ -11,12 +11,13 @@
                 <li class="nav-item <%= 'active' if action_name == 'todos' %>" >
                     <%=link_to "Principal",posts_path,class:"nav-item nav-link"%>
                     </li>
-               <li class="nav-item <%= 'active' if action_name == 'todos' %>" >
-              <%=link_to "Mis Publicaciones",user_path,class:"nav-item nav-link"%>
-              </li>
+               
               <li class="nav-item <%='active' if action_name == 'list' %>" >
               <%=link_to "list",posts_path,class:"nav-item nav-link"%>
               </li>
+              <li class="nav-item">
+                  <%= link_to current_user.name , user_path,class:"nav-item nav-link" %>
+                </li>
               <li class="nav-item <%= 'active' if action_name == 'Salir'%>">
                <%= link_to "Salir", destroy_user_session_path, method: :delete, class:"nav-item nav-link text-light" %>
             </li>
