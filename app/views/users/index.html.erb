@@ -15,12 +15,17 @@
         <div class="card-body">
           <h5 class="card-title"><%= userpos.name %></h5>
           <p class="card-text"><%= userpos.detail %></p>
+          <%= link_to 'likes?', show_like_path %>
           <%= link_to 'Show', userpos, class:'btn border-info' %>
           <%= link_to 'Edit', edit_post_path(userpos) , class:'btn border-info'%>
         <%= link_to 'Destroy', userpos, method: :delete, data: { confirm: 'Are you sure?' } , class:'btn border-info'%>
         </div>
         <div class="card-footer text-muted">
           <small>Updated <%=time_ago_in_words userpos.updated_at%></small>
+          <%=userpos.likes.where(match: true).count%>
+          <%userpos.likes.each do |likes|%>
+          <%=likes.user.email%>
+          <%end%>
         </div>
       </div>
       <br>

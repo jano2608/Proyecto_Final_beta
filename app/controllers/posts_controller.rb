@@ -11,6 +11,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    #@userpost = Post.find(params[:post_id])
+    #@like = Like.where(post_id: userpost.id)
+    #redirect_to show_like_path 
+
   end
 
   # GET /posts/new
