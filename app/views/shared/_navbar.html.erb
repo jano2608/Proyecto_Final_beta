@@ -2,7 +2,7 @@
 <%if user_signed_in?%>
 <nav class="navbar navbar-light text-light bg-info">
   <a class="navbar-brand">
-    <%=image_tag "instruction.svg",class:"img-fluid" , alt:"una imagen", width:"50"%> <%= link_to 'New Post', new_post_path ,class:"btn btn-info" %>
+    <%=image_tag "instruction.svg",class:"img-fluid" , alt:"una imagen", width:"50"%> 
   </a>
   <ul class="nav item">
     <li class="nav-item <%= 'active' if action_name == 'Principal' %>" >

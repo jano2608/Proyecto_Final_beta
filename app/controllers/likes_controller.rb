@@ -11,6 +11,6 @@ class LikesController < ApplicationController
        @like.match = true
        @like.save
        redirect_to posts_path 
-
     end
+    
 end

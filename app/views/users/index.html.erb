@@ -3,30 +3,34 @@
 <h1>Post</h1>
 
 <div class="body_index container">
-    <% @userpost.each_slice(3) do |userpost| %>
+    <% @userposts.each_slice(3) do |userposts| %>
     
     <div class="row">
       <br>
-      <% userpost.each do |userpos| %>
+      <% userposts.each do |userpost| %>
       <div class="card mr-4 " style="width: 18rem;" >
-          <%if userpos.image.attached? %>
-        <%= image_tag userpos.image.variant(resize:"400x400")%>
+          <%if userpost.image.attached? %>
+        <%= image_tag userpost.image.variant(resize:"400x400")%>
         <%end%>
         <div class="card-body">
-          <h5 class="card-title"><%= userpos.name %></h5>
-          <p class="card-text"><%= userpos.detail %></p>
-          <%= link_to 'likes?', show_like_path %>
-          <%= link_to 'Show', userpos, class:'btn border-info' %>
-          <%= link_to 'Edit', edit_post_path(userpos) , class:'btn border-info'%>
-        <%= link_to 'Destroy', userpos, method: :delete, data: { confirm: 'Are you sure?' } , class:'btn border-info'%>
+          <h5 class="card-title"><%= userpost.name %></h5>
+          <p class="card-text"><%= userpost.detail %></p>
+          
+          <%= link_to 'Show', userpost, class:'btn border-info' %>
+          <%= link_to 'Edit', edit_post_path(userpost) , class:'btn border-info'%>
+        <%= link_to 'Destroy', userpost, method: :delete, data: { confirm: 'Are you sure?' } , class:'btn border-info'%>
         </div>
         <div class="card-footer text-muted">
-          <small>Updated <%=time_ago_in_words userpos.updated_at%></small>
-          <%=userpos.likes.where(match: true).count%>
-          <%userpos.likes.each do |likes|%>
-          <%=likes.user.email%>
-          <%end%>
-        </div>
+          <small>Updated <%=time_ago_in_words userpost.updated_at%></small>
+          <button type="button" class="btn border-primary" data-toggle="modal" data-target="#exampleModal">
+              <%= "#{userpost.likes.where(match: true).count} " "likes " %>
+            </button>
+            <% userpost.likes.each do |like|%>
+            <%= like.user.name%>
+            <%end%>
+            
+          </div>
+          
       </div>
       <br>
     <% end %>
@@ -35,3 +39,4 @@
     <% end %>
     <br>
   </div>
+  
