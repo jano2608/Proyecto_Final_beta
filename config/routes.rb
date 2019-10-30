@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'users', to: 'users#index', as: 'user'
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   resources :posts
 
   post 'like/:post_id', to: 'likes#create', as: 'likes'

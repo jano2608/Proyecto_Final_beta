@@ -16,4 +16,4 @@ AdminUser.destroy_all
         password: '123123', 
         password_confirmation: '123123'})
 end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
