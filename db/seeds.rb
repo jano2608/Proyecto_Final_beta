@@ -15,5 +15,6 @@ AdminUser.destroy_all
         email: "example#{i+1}@mail.com", 
         password: '123123', 
         password_confirmation: '123123'})
+        
 end
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
