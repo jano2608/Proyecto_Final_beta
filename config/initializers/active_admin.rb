@@ -22,7 +22,8 @@ ActiveAdmin.setup do |config|
   #
   # Set the default namespace each administration resource
   # will be added to.
-  #
+  config.register_javascript 'chart.js/dist/Chart.js'
+  config.register_javascript 'chartkick'
   # eg:
   #   config.default_namespace = :hello_world
   #
