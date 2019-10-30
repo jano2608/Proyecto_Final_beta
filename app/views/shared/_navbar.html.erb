@@ -1,21 +1,21 @@
 
 <%if user_signed_in?%>
-<nav class="navbar navbar-light text-light bg-info">
+<nav class="navbar navbar-light text-light bg-dark">
   <a class="navbar-brand">
     <%=image_tag "instruction.svg",class:"img-fluid" , alt:"una imagen", width:"50"%> 
   </a>
   <ul class="nav item">
     <li class="nav-item <%= 'active' if action_name == 'Principal' %>" >
-      <%=link_to "Principal",posts_path,class:"nav-item nav-link text-dark"%>
+      <%=link_to "Principal",posts_path,class:"nav-item nav-link text-light"%>
     </li>
     
     <li class="nav-item ">
-      <%= link_to current_user.name , user_path,class:"nav-item nav-link text-dark" %>
+      <%= link_to current_user.name , user_path,class:"nav-item nav-link text-light" %>
     </li>
     
     <li class="nav-item <%= 'active' if action_name == 'Salir'%>">
       
-      <%= link_to "Salir", destroy_user_session_path, method: :delete, class:"nav-item nav-link text-dark" %>
+      <%= link_to "Salir", destroy_user_session_path, method: :delete, class:"nav-item nav-link btn border-danger text-danger " %>
     </li>
   </ul>
 </nav>

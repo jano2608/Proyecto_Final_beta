@@ -1,4 +1,4 @@
-
+<div class="index_all">
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <%= render 'form', post: @post%>
@@ -14,7 +14,7 @@
       document.getElementById("main").style.marginLeft = "250px";
   }
   
-  /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+  
   function closeNav() {
       document.getElementById("mySidebar").style.width = "0";
       document.getElementById("main").style.marginLeft = "0";
@@ -26,15 +26,16 @@
   <div class="row">
     <br>
     <% posts.each do |post| %>
-    <div class="card mr-4 " style="width: 18rem;" >
-      <%= image_tag post.image.variant(resize:"400x400")%>
+    <div class="card mr-4  border-dark" style="width: 18rem;" >
+      <%= image_tag post.image.variant(resize:"200x200")%>
       <div class="card-body">
         <h5 class="card-title"><%= post.name %></h5>
+        <h5 class="card-text"><%= post.author %></h5>
         <p class="card-text"><%= post.detail %></p>
         <%= link_to "like", likes_path(post), method: :post, class: "btn btn-primary" %>
       </div>
-      <div class="card-footer text-muted">
-        <small>Updated <%=time_ago_in_words post.updated_at%></small>
+      <div class="card-footer text-white border-dark bg-dark ">
+        <small>Updated <%=time_ago_in_words post.updated_at %></small>
       </div>
     </div>
     <br>
@@ -43,4 +44,5 @@
   <br>
   <% end %>
   <br>
+</div>
 </div>

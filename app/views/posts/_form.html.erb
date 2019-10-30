@@ -1,27 +1,32 @@
 <div class="container ">
 <%= form_with(model: post, scope: :post) do |form| %>
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name ,class:"form-control", placeholder:"Libro"%>
   </div>
-
+<br>
   <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author %>
+    
+    <%= form.text_field :author ,  class:"form-control", placeholder:"Autor" %>
   </div>
-
+<br>
   <div class="field">
-    <%= form.label :detail %>
-    <%= form.text_area :detail %>
+    
+    <%= form.text_area :detail ,class:"form-control", placeholder:"Descripción"%>
   </div>
 
+  <br>
+  
+  <div class="custom-file">
+      <%= form.file_field :image, class:"custom-file-input"  %>
+    <label class="custom-file-label" for="customFile">Photo</label>
+    <br>
+  </div>
+  
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "crear" , class:"btn btn-danger  btn-lg btn-block "%>
   </div>
 
-  <div class="field">
-    <%= form.label :image%>
-    <%= form.file_field :image%>
-  </div>
+  
 <% end %>
 </div>

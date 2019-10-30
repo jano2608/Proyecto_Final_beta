@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div class="index_all" >
 
 <h1>Post</h1>
 
@@ -8,24 +8,25 @@
     <div class="row">
       <br>
       <% userposts.each do |userpost| %>
-      <div class="card mr-4 " style="width: 18rem;" >
+      <div class="card mr-4 border-dark" style="width: 18rem;" >
           <%if userpost.image.attached? %>
-        <%= image_tag userpost.image.variant(resize:"400x400")%>
+        <%= image_tag userpost.image.variant(resize:"200x200")%>
         <%end%>
         <div class="card-body">
           <h5 class="card-title"><%= userpost.name %></h5>
           <p class="card-text"><%= userpost.detail %></p>
           
-          <%= link_to 'Show', userpost, class:'btn border-info' %>
-          <%= link_to 'Edit', edit_post_path(userpost) , class:'btn border-info'%>
-        <%= link_to 'Destroy', userpost, method: :delete, data: { confirm: 'Are you sure?' } , class:'btn border-info'%>
+          <%= link_to 'Show', userpost, class:'btn border-danger' %>
+          <%= link_to 'Edit', edit_post_path(userpost) , class:'btn border-danger'%>
+        <%= link_to 'Destroy', userpost, method: :delete, data: { confirm: 'Are you sure?' } , class:'btn border-danger'%>
         </div>
-        <div class="card-footer text-muted">
+        <div class="card-footer text-white bg-dark">
           <small>Updated <%=time_ago_in_words userpost.updated_at%></small>
-          <button type="button" class="btn border-primary" data-toggle="modal" data-target="#exampleModal">
+         
               <%= "#{userpost.likes.where(match: true).count} " "likes " %>
-            </button>
+            
             <% userpost.likes.each do |like|%>
+
             <%= like.user.name%>
             <%end%>
             
@@ -40,3 +41,4 @@
     <br>
   </div>
   
+</div>
